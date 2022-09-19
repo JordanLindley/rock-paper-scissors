@@ -10,14 +10,17 @@ function getComputerChoice() {
 
   // getPlayerChoice:
 let playerChoice = 'rock';
-
+let computerChoice;
+let roundsWon = 0;
+let roundsLost = 0;
 // playRound:
   // Takes two parameters: computerChoice and playerChoice
   // Conditional statements. 
     // `You lose! ${} beats ${}!`
     // `You win! ${} beats ${}!`
   // Return results, do not console.log them.
-function playRound(computerChoice, playerChoice) {
+function playRound(playerChoice, computerChoice) {
+
   playerChoice = prompt('Rock, Paper, Scissors, Shoot!', playerChoice);
   computerChoice = getComputerChoice();
 
@@ -26,27 +29,50 @@ function playRound(computerChoice, playerChoice) {
   let tie = 'It\'s a tie! Play again!'
 
   // Must be case insensitive
-  if (playerChoice.toLowerCase() === 'rock' && computerChoice === 'scissors') {
+  if (playerChoice.toLowerCase() == 'rock' && computerChoice == 'scissors') {
+    roundsWon = ++roundsWon;
     console.log(`Player Choice: ${playerChoice}`);
     console.log(`Computer Choice: ${computerChoice}`);
-    return youWin;
-  } else if (playerChoice.toLowerCase() === 'scissors' && computerChoice === 'paper') {
+    console.log(youWin);
+    } else if (playerChoice.toLowerCase() == 'scissors' && computerChoice == 'paper') {
+    roundsWon = ++roundsWon;
     console.log(`Player Choice: ${playerChoice}`);
     console.log(`Computer Choice: ${computerChoice}`);
-    return youWin;
-  } else if (playerChoice.toLowerCase() === 'paper' && computerChoice === 'rock') {
+    console.log(youWin);
+  } else if (playerChoice.toLowerCase() == 'paper' && computerChoice == 'rock') {
+    roundsWon = ++roundsWon;
     console.log(`Player Choice: ${playerChoice}`);
     console.log(`Computer Choice: ${computerChoice}`);
-    return youWin;
-  } else if (playerChoice.toLowerCase() === computerChoice) {
+    console.log(youWin);
+  } else if (playerChoice.toLowerCase() == computerChoice) {
     console.log(`Player Choice: ${playerChoice}`);
     console.log(`Computer Choice: ${computerChoice}`);
-    return tie;
-  } else if (playerChoice.toLowerCase() !== 'rock' || playerChoice.toLowerCase() !== 'paper' || playerChoice.toLowerCase() !== 'scissors')  {
-    return 'You must select "rock", "paper", or "scissors"';
-  } else return youLose;
+    console.log(tie);
+  } else if (playerChoice.toLowerCase() !== 'rock' && playerChoice.toLowerCase() !== 'paper' && playerChoice.toLowerCase() !== 'scissors' || playerChoice.toLowerCase() == null) {
+    console.log('You must select "rock", "paper", or "scissors"');
+  } 
+  else {
+    roundsLost = ++roundsLost;
+    console.log(`Player Choice: ${playerChoice}`);
+    console.log(`Computer Choice: ${computerChoice}`);
+    console.log(youLose);
+  }
 }
 
+// game() function = 5 rounds.
+  // use a for loop where i = number of rounds.
+  // count roundsWon and roundsLost
+  // if roundsWon
+function game() {
+  for (i = 1; i < 6; i++) {
+    playRound()
+    console.log(`Round ${i} out of 5!`);
+  }
+  if (roundsWon > roundsLost) {
+    console.log('Congratulations! You\'ve won!');
+  } else if (roundsWon == roundsLost) {
+    console.log('It\'s a tie! Out of five. I guess.');
+  } else console.log('Better luck next time!');
+}
 
-
-  // game() function = 5 rounds.
+game();
