@@ -61,8 +61,7 @@ function playRound(playerChoice, computerChoice) {
 
 // game() function = 5 rounds.
   // use a for loop where i = number of rounds.
-  // count roundsWon and roundsLost
-  // if roundsWon
+  // count roundsWon and roundsLost. Print winning or losing message to the console depending on the outcome.
 function game() {
   for (i = 1; i < 6; i++) {
     playRound()
