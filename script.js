@@ -29,22 +29,16 @@ function playRound(playerChoice, computerChoice) {
   let tie = 'It\'s a tie! Play again!'
 
   // Must be case insensitive
-  if (playerChoice.toLowerCase() == 'rock' && computerChoice == 'scissors') {
+  if (
+    (playerChoice.toLowerCase() == 'rock' && computerChoice == 'scissors') 
+    || (playerChoice.toLowerCase() == 'scissors' && computerChoice == 'paper') 
+    || (playerChoice.toLowerCase() == 'paper' && computerChoice == 'rock')) {
     roundsWon = ++roundsWon;
     console.log(`Player Choice: ${playerChoice}`);
     console.log(`Computer Choice: ${computerChoice}`);
     console.log(youWin);
-    } else if (playerChoice.toLowerCase() == 'scissors' && computerChoice == 'paper') {
-    roundsWon = ++roundsWon;
-    console.log(`Player Choice: ${playerChoice}`);
-    console.log(`Computer Choice: ${computerChoice}`);
-    console.log(youWin);
-  } else if (playerChoice.toLowerCase() == 'paper' && computerChoice == 'rock') {
-    roundsWon = ++roundsWon;
-    console.log(`Player Choice: ${playerChoice}`);
-    console.log(`Computer Choice: ${computerChoice}`);
-    console.log(youWin);
-  } else if (playerChoice.toLowerCase() == computerChoice) {
+    } 
+   else if (playerChoice.toLowerCase() == computerChoice) {
     console.log(`Player Choice: ${playerChoice}`);
     console.log(`Computer Choice: ${computerChoice}`);
     console.log(tie);
@@ -66,6 +60,7 @@ function game() {
   for (i = 1; i < 6; i++) {
     playRound()
     console.log(`Round ${i} out of 5!`);
+    console.log(`Player Score: ${roundsWon}. Computer Score: ${roundsLost}`);
   }
   if (roundsWon > roundsLost) {
     console.log('Congratulations! You\'ve won!');
