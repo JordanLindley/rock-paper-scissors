@@ -7,10 +7,39 @@ body {
   justify-content: space-between;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  gap: 16px;
+  background-color:  #055e67;
+  color: #cfe2e4;
+  margin: auto;
+  margin-bottom: 40px;
+  gap: 200px;
+  flex-shrink: 0;
+  font-size: 32px;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 button {
+  border: none;
+  border-radius: 8px;;
+  background-color: #055e67;
+  color: #cfe2e4;
+  font-weight: 600;
+  padding: 16px 16px;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 20px;
   margin-bottom: 15px;
   gap: 5px;
   padding: 8px;
@@ -20,10 +49,11 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 10px;
+  margin: 20px;
 }
 
 .results {
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 8px;
